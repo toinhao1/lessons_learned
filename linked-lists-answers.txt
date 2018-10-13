@@ -1,0 +1,167 @@
+1) What are some pros and cons of using linked lists instead of arrays?
+
+A: The pros of linked lists are the list never contains empty placeholders, each node in independent in memory which allows the OS to us any available location to store data. With this it makes it so linked lists can grow to immense sizes. The cons are its inefficient to access an element within the list, elements within the list have to be accessed in order starting from the head.
+
+2) Come up with a real world example of a linked list.
+
+A: A real world example would be an elevator as you have to typically start on the 1st floor and to get to the top have to pass through all of the floors.
+
+Programming Questions
+
+1) The linked list push function should take a value, create a node, and add it to the end of a list. Below is pseudocode for a push function for a singly linked list. However, there is something wrong with it. Submit both an explanation of the bug and a functional implementation of the method.
+
+A:
+Function linkList
+  SET head TO null
+END FUNCTION
+
+LinkList Prototype push = FUNCTION(element)
+  CREATE node
+    SET node.value TO element
+    SET node.next TO null
+
+  IF the head node does not exist
+    THEN SET head to node
+  ELSE
+    SET current to head
+    SET current.next to node
+  END IF
+END FUNCTION
+
+function LinkedList() {
+  this.head = null;
+}
+LinkedList.prototype.push = function(value) {
+  var  node = {
+    value: value,
+    next: null
+  }
+  if (!this.head) {
+    this.head = node;
+  } else {
+    current = this.head;
+    while (current.next) {
+      current = current.next;
+    }
+    current.next = node;
+  }
+}
+let newList = new LinkedList();
+
+newList.push(500);
+newList.push(200);
+
+newList
+
+2) Given an unsorted singly linked list, remove all duplicates from the linked list.
+
+A:
+class LinkedList {
+  constructor(...values) {
+    this.head = null;
+    this.length = 0;
+    this.addToHead(...values);
+  }
+  _addSingleItemToHead(value) {
+    const newNode = { value };
+    newNode.next = this.head;
+    this.head = newNode;
+    this.length++;
+  }
+  addToHead(...values) {
+    values.forEach(value => this._addSingleItemToHead(value));
+    return this;
+  }
+  removeDuplicates() {
+    if (!this.head || !this.head.next) {
+      console.log('No duplicates!')
+      return;
+    }
+    var thisNode = this.head;
+    while (thisNode != null) {
+      var previousNode = thisNode;
+      var nextNode = thisNode.next;
+      while (nextNode != null) {
+        if (thisNode.value == nextNode.value) {
+          previousNode.next = nextNode.next;
+          this.length --;
+        } else {
+            previousNode = nextNode;
+        }
+        nextNode = nextNode.next;
+      }
+      thisNode = thisNode.next;
+    }
+    return this;
+  }
+  reverseLinkedList() {
+		if (!this.head || !this.head.next) {
+			console.log('No duplicates were found. Empty or a single element Linked List.');
+			return;
+		}
+
+		var previousNode = null;
+		var thisNode = this.head;
+		var nextNode;
+
+		while (thisNode) {
+			nextNode = thisNode.next;
+			thisNode.next = previousNode;
+			previousNode = thisNode;
+			thisNode = nextNode;
+		}
+
+		this.head = previousNode;
+	}
+  showAllElements() {
+    if (this.head == null) return;
+    var thisNode = this.head,
+      i = 1;
+    while (thisNode.next != null) {
+      console.log('Element ' + i + ' has value ' + thisNode.value);
+      thisNode = thisNode.next;
+      i++;
+    }
+    console.log('Element ' + i + ' has value ' + thisNode.value);
+  }
+}
+var checkDupes = new LinkedList();
+
+checkDupes.addToHead('A', 'B', 'C', 'D', 'D', 'Z');
+checkDupes.removeDuplicates();
+checkDupes.showAllElements();
+
+3) Given an unsorted singly linked list, reverse it.
+
+A:
+class ReverseList {
+  constructor(...values) {
+    this.head = null;
+    this.length = 0;
+    this.addToHead(...values);
+  }
+  _addSingleItemToHead(value) {
+    const newNode = {value};
+    newNode.next = this.head;
+    this.head = newNode;
+    this.length++;
+  }
+  addToHead(...values) {
+    values.forEach(value => this._addSingleItemToHead(value));
+    return this;
+  }
+  showElements() {
+    if (this.head == null) return;
+    var thisNode = this.head,
+      i = 1;
+    while (thisNode.next != null) {
+      console.log('Element ' +  i + ' has value ' + thisNode.value);
+      thisNode = thisNode.next;
+      i++;
+    }
+    console.log('Element ' +  i + ' has value ' + thisNode.value);
+  }
+}
+var reverseIt = new ReverseList();
+reverseIt.addToHead('a', 'b', 'c', 'd');
+reverseIt.showElements();
