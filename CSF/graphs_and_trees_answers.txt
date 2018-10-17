@@ -38,66 +38,69 @@ FUNCTION valueCheck(value)
   RETURN temp
 END FUNCTION
 
-function Node(val){
-  this.value = val;
-  this.left = null;
-  this.right = null;
-}
-
-function BinarySearchTree(){
-  this.root = null;
-}
-
-BinarySearchTree.prototype.push = function(val){
-   var root = this.root;
-
-   if(!root){
-      this.root = new Node(val);
-      return;
-   }
-
-   var currentNode = root;
-   var newNode = new Node(val);
-
-   while(currentNode){
-      if(val < currentNode.value){
-          if(!currentNode.left){
-             currentNode.left = newNode;
-             break;
-          }
-          else{
-             currentNode = currentNode.left;
-        }
-     }
-     else{
-         if(!currentNode.right){
-            currentNode.right = newNode;
-            break;
-         }
-         else{
-            currentNode = currentNode.right;
-         }
-     }
-  }
-}
-BinarySearchTree.prototype.contains =  function (val) {
-    if (bst.val === val) {
-      var doesContain = true;;
-    } else if (bst.left !== undefined && val < bst.value) {
-
-    } else if (bst.right !== undefined && val > bst.val) {
-
+class Node {
+    constructor(data) {
+        this.data = data;
+        this.left = null;
+        this.right = null;
     }
-  return doesContain;
 }
+class BinarySearchTree {
+    constructor() {
+        this.root = null;
+    }
+    insert(data) {
+      var newNode = new Node(data);
+      if (this.root === null) {
+        this.root = newNode;
+      } else {
+          this.insertNode(this.root, newNode);
+      }
+    }
+    insertNode(node, newNode) {
+      if (newNode.data < node.data) {
+        if (node.left === null) {
+          node.left = newNode
+        } else {
+            this.insertNode(node.left, newNode);
+          }
+      } else {
+          if (node.right === null) {
+            node.right = newNode;
+          } else {
+            this.insertNode(node.right, newNode)
+          }
+      }
+    }
+    getRootNode() {
+      return this.root;
+    }
+    search(node, data) {
+      if (node === null) {
+        return false;
+      } else if (data < node.data) {
+          return this.search(node.left, data)
+      } else if (data > node.data) {
+          return this.search(node.right, data)
+      } else {
+         return true;
+      }
+    }
+}
+
 var bst = new BinarySearchTree();
-bst.push(3);
-bst.push(2);
-bst.push(4);
-bst.push(1);
-bst.push(5);
+bst.insert(3);
+bst.insert(2);
+bst.insert(4);
+bst.insert(1);
+bst.insert(5);
+bst.insert(6);
+bst.insert(7);
 console.log(bst);
-bst.contains(4);
+
+var root = bst.getRootNode();
+
+bst.search(root, 5)
 
 2)Given a Binary Search Tree and two nodes, n1 and n2, write a function that finds the distance between the two nodes.
 
@@ -119,48 +122,55 @@ FUNCTION findDistance(start, end)
 END FUNCTION
 
 class Node:
-  def __init__(self, data):
-    self.data = data
-    self.right = None
-    self.left = None
+	def __init__(self, data):
+		self.data = data
+		self.left = self.right = None
 
-def nodePath(root, path, k):
-  if root is None:
-    return False
+def LCA(root, n1, n2):
 
-  path.append(root.data)
-  if root.data == k:
-    return True
+	if root is None:
+		return None
 
-  if ((root.left != None and nodePath(root.left, path, k)) or (root.right != None and nodePath(root.right, path, k))):
-    return True
+	if root.data == n1 or root.data == n2:
+		return root
 
-  path.pop()
-  return False
+	left = LCA(root.left, n1, n2)
+	right = LCA(root.right, n1, n2)
 
-def distance(root, n1, n2):
-  if root:
-    path1 = []
-    nodePath(root, path1, n1)
+	if left is not None and right is not None:
+		return root
+	if left:
+		return left
+	else:
+		return right
+def findLevel(root, data, d, level):
+	if root is None:
+		return
+	if root.data == data:
+		d.append(level)
+		return
+	findLevel(root.left, data, d, level + 1)
+	findLevel(root.right, data, d, level + 1)
 
-  path2 = []
-  nodePath(root, path2, n2)
+def findDistance(root, n1, n2):
+	lca = LCA(root, n1, n2)
+	d1 = []
+	d2 = []
+	if lca:
+		findLevel(lca, n1, d1, 0)
+		findLevel(lca, n2, d2, 0)
+		return d1[0] + d2[0]
+	else:
+		return -1
 
-  i = 0
-  while i < len(n1) and i < len(n2):
-    if path1[i] != path2[i]:
-      break
-    i = i + 1
-
-  return (len(path1) + len(path2) - 2 * i)
-
-root = Node(1)
+root = Node(1) 
 root.left = Node(2)
 root.right = Node(3)
 root.left.left = Node(4)
-root.right.right= Node(7)
-root.right.left = Node(6)
 root.left.right = Node(5)
+root.right.left = Node(6)
+root.right.right = Node(7)
 root.right.left.right = Node(8)
 
-dist = distance(root, 2, 5)
+print("Dist(4,5) = ", findDistance(root, 4, 5))
+print("Dist(4,6) = ", findDistance(root, 4, 6))
