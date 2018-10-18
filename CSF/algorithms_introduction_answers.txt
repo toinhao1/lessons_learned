@@ -1,0 +1,52 @@
+1)Using proper pseudo-code, describe the following primitive algorithms:
+
+-Making coffee;
+Take coffee pot in one hand;
+rinse out with water;
+Fill coffee pot to desired level with water;
+Pour water into correct location of coffee maker;
+Place coffee pot into coffee maker;
+Find coffee filters;
+Grab one coffee filter and place into coffee maker;
+Find coffee
+Place 4 scoops of coffee into the filter that is in the coffee maker;
+Close coffee maker;
+Turn coffee maker on;
+Enjoy coffee;
+
+-Washing dishes;
+If dishes in the Sink;
+Turn hot water on;
+Rinse dirty dishes
+Turn hot water off;
+Grab sponge with one hand and place dish soap on sponge;
+Grab one dish in one hand;
+Scrub dish with sponge until clean;
+Turn hot water on;
+Rinse off dish with hot water;
+Turn off hot water;
+Place wet dish in drying rack;
+
+-A choice of your own. Gas into car.
+Get into car;
+Turn car on;
+Back out of driveway;
+Drive to gas station;
+Park with gas lid next to gas pump;
+Get out of car;
+Place card into card reader at pump;
+Remove card from card reader;
+Open gas tank cover;
+Grab gas dispenser
+Insert dispenser into gas tank;
+Select which gas to pump;
+Squeeze dispense and hold until gas tank is full;
+
+2)As with the knot algorithm, there may be more than one way to solve the problem. It is essential to try to pick the best algorithm for a situation. Name three companies who created an algorithm that made them successful, e.g., Google's search algorithm. It doesn't need to be a tech example (such as a recipe or manufacturing a product). Google's algorithm produces more relevant results than other search engines; what about each of your cases make them stand out?
+
+A: Uber, Snapchat, Sol Food.
+Uber's algorithm for connecting drivers to passengers as made it the reader in ride sharing. Snapchats algorithm for taking pictures and then deleting them made them the leader in image sharing but now has fallen behind. Sol Food a restaurant in San Rafael CA, has the best Puerto Rican food ever. Even comparing their food to other latin restaurants they outperform everyone.
+
+3)Hypothesize about what constitutes an efficient algorithm versus an inefficient algorithm.
+
+A:What constitutes efficiency in my mind at the moment would be an algorithm that followed the DRY principles. Essentially something that took the least amount of code to complete the task at hand. As where an inefficient algorithm would be the oppositie that has a massive amount of code that could be simplified but still gets that job done.
