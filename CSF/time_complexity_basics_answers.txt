@@ -1,0 +1,42 @@
+1)What is time complexity and what is its relation to algorithms?
+
+A: Time complexity is typically expressed as a functions that estimates the time it takes for for a program to run.
+
+2)What is runtime?
+
+A: The time duration of an algorithm which is similar to time complexity.
+
+3)How is the runtime of an algorithm calculated?
+
+A: By going through the function or algorithm and add up how many instructions will execute and dropping any constants.
+
+4)Name the six types of algorithm growth rates we saw in this checkpoint and list them in order of most efficient to least efficient. Now Google another algorithmic growth rate not covered and place it in the correct spot in your list.
+
+A:
+1.Exponential growth rate.
+2.Quadratic growth rate
+3.Found Cubic growth rate on google.
+4.Log-Linear growth rate,
+5.Logarithmic growth rate,
+6.Constant growth rate,
+7.Linear growth rate,
+
+5)Choose one of the algorithmic growth rates from the last question and make a comparison to a real-life situation.
+
+A: The exponential growth rate can be used with compounding interest. With an investment that compounds annually for 30 years and with small contributions being made monthly you see that growth rate take off after 15 years with a sharp exponential curve.
+
+6)Determine the time complexity of the following snippet of code. It is commonly known as a linear search.
+
+A: O(n)
+
+7)Determine the time complexity of the following snippet of code.
+
+A: O(n^2)
+
+8)Determine the time complexity of the following snippet of code. It is commonly known as the Fibonacci sequence.
+
+A: O(n)
+
+9)Out of the code snippets you just saw, which is the most time efficient?
+
+A: I would say the algorithm with the nested for loops is the most efficient.
