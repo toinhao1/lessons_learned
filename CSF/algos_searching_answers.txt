@@ -1,0 +1,63 @@
+1)What is a real-life scenario that uses linear search?
+
+A: Looking through an unsorted file folder, if you are looking for a document from a certain date but the documents are not organized then you would have to go through each one until you found the one you were looking for.
+
+2)What is a real-life scenario that uses binary search?
+
+A: Searching for a book in a library would be a real life scenario.
+
+3)Given the alphabetically sorted collection in this checkpoint, how many iterations would it take to find the value G using linear search?
+
+A: It would be 7 iterations
+
+4)Given the alphabetically sorted collection in this checkpoint, how many iterations would it take to find the value G using binary search?
+
+A: It would take 3 iterations with Binary search.
+
+5)Given an unsorted collection of a million items, which algorithm would you choose between linear search and binary search? Explain your reasoning.
+
+A: We would have to use a linear search as the list of items is unsorted. It would not be efficient and be time consuming but between the two we would have to use Linear.
+
+6)Given a sorted collection of a million items, which algorithm would you choose between linear search and binary search? Explain your reasoning.
+
+A: We would use the binary search and we would be able to find what we are looking for much faster than with the Linear Search.
+
+Programming Assignment:
+1)You and a friend have set a wager to see who can find the word "Albatross" in the dictionary the fastest. Write a program to allow you to win the bet.
+
+function searchWord(arr, word) {
+  var start = 0;
+  var end = arr.length -1;
+  while (start <= end) {
+    if(start === end) {
+      var middle = start;
+    } else {
+        middle = Math.floor((end - start) / 2) + start;
+    }
+    if (arr[middle] === word) {
+      return ('The word is in position ' + middle);
+    }
+    if (word < arr[middle]) {
+      end = middle - 1;
+    } else {
+        start = middle + 1;
+    }
+  }
+  return ('The word is not in the list');
+}
+var manyWords = ['albatross', 'dsfdfdfs', 'fsdffsdfsf', 'sfsdffsdfs', 'sdfdfgdfsgf'];
+
+searchWord(manyWords, 'dsfdfdfs');
+
+2)You work at a pet store, and a child has asked you to net the only white-spotted goldfish from the fish tank. Write a program that will help you net the right fish.
+
+function findFish(arr, fish) {
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] === fish) {
+      return ("Here is your " + fish);
+    }
+  }
+  return "No " + fish + " left."
+}
+var manyFish = ['goldfish', 'goldfish', 'beta', 'blackfish', 'yellofish', 'goldfish', 'White-Spotted-Goldfish']
+findFish(manyFish, 'White-Spotted-Goldfish');
