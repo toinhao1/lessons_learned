@@ -1,0 +1,47 @@
+1)Define and compare recursion and iteration.
+
+A: Recursion is the procedure where the function calls itself with parameters that move towards ending aka base cases.Iteration is using a loop to repeat a certain process such as counting all the numbers in an array. Iteration and recursion can typically be used to accomplish similar tasks. Although recursive solutions run slower and encounter system issue more often that an iterative solution.
+
+2)Name five algorithms that are commonly implemented by recursion.
+
+A: Factorial of a number, Fibonacci numbers, recursive binary search, linked list print, quick sort, merge sort.
+
+3)When should you use recursion, and when should you avoid recursion? Give examples for each.
+
+A: You should use recursion when it is very complex to write an iterative function. For example sorting and searching typically use a recursive function. As from the reading it depends on the situation like the checkpoint said the Fibonacci function is typically written recursively but most likely it will be better suited to be implemented iteratively due to performance concerns.
+
+4)Compare the recursive and iterative solutions to the three algorithms from the checkpoint (factorial, maximum, and fibonacci). What is similar, and what is different?
+
+A: All of the iterative solutions are much easier to read and look cleaner in general. They all accomplish the same thing the fibonacci function is slightly different where it skips checking the number and outputting and error as well as checking if the number is 1 or 2.
+
+5)Given a multi-dimensional collection (such as an array) where the number of dimensions is unknown, write a recursive algorithm to count the number of items in the entire collection.
+
+A:
+var arrays = [1, 23, 4, 6];
+var count = 0;
+
+function countItems(arr){
+  if(!Array.isArray(arr)){
+     count++;
+  } else {
+    for(var i = 0; i < arr.length; i++){
+      countItems(arr[i]);
+    }
+  }
+  return count;
+}
+countItems(arrays);
+
+6)A palindrome is a word or phrase whose spelling is the same either direction (e.g., racecar). Write a recursive algorithm to determine if a given word or phrase is a palindrome.
+
+A:
+def isPalindrome(word):
+  if len(word) <= 1:
+    return True
+  return (word[0] == word[-1]) and isPalindrome(word[1: -1])
+
+print(isPalindrome('racecar'))
+
+7)Google Easter Egg: Google the term "recursion". Google will prompt you with "Did you mean: recursion". Explain why this behavior exhibits properties of recursion.
+
+A: This exhibits properties of recursion because it is calling itself from within its self. No matter how many times you click the recursion word it still shows so it will repeat over and over every time someone googles recursion. 
