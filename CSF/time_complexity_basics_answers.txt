@@ -13,13 +13,13 @@ A: By going through the function or algorithm and add up how many instructions w
 4)Name the six types of algorithm growth rates we saw in this checkpoint and list them in order of most efficient to least efficient. Now Google another algorithmic growth rate not covered and place it in the correct spot in your list.
 
 A:
-1.Exponential growth rate.
-2.Quadratic growth rate
-3.Found Cubic growth rate on google.
-4.Log-Linear growth rate,
-5.Logarithmic growth rate,
-6.Constant growth rate,
-7.Linear growth rate,
+1.Constant growth rate
+2.Logarithmic growth rate
+3.Linear growth rate
+4.Log-Linear growth rate
+5.Quadratic growth rate
+6.Found Cubic growth rate on google
+7.Exponential growth rate
 
 5)Choose one of the algorithmic growth rates from the last question and make a comparison to a real-life situation.
 
@@ -35,8 +35,8 @@ A: O(n^2)
 
 8)Determine the time complexity of the following snippet of code. It is commonly known as the Fibonacci sequence.
 
-A: O(n)
+A: O(n^2)
 
 9)Out of the code snippets you just saw, which is the most time efficient?
 
-A: I would say the algorithm with the nested for loops is the most efficient.
+A: I would say the linear search would be most efficient.
