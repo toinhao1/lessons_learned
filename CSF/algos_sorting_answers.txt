@@ -1,0 +1,53 @@
+1)Write pseudocode for bubble sort.
+
+A:
+FUNCTION bubbleSort(collect)
+  REPEAT
+    SET swapped to false
+    FOR i = FIRST INDEX  of collect to LAST INDEX of collect -1
+      IF collect[i] > collect[i + 1] THEN
+        SET tmp to collect[i]
+        SET collect[i] to collect[i + 1]
+        SET collect[i + 1] to tmp
+        SET swapped to true
+      END IF
+    END FOR
+  UNTIL swapped is FALSE
+  RETURN collect
+END FUNCTION
+
+2)Write pseudocode for quicksort.
+
+A:
+FUNCTION quicksort(elements, lowElement, highElement)
+  IF elements[lowElement] < elements[highElement] THEN
+    SET pivotElement to CALL partition(elements, lowElement, highElement)
+    CALL quicksort(elements, lowElement, pivotElement)
+    CALL quicksort(elements, pivotElement + 1, highElement)
+  END IF
+END FUNCTION
+
+FUNCTION partitionElement(elements, lowElement, highElement)
+  SET pivotElements to elements[lowElement]
+  SET leftSide to lowElement
+  FOR each elements with index between lowElement + 1 and highElement
+    IF elements[index] < pivotElements THEN
+      SET swap to elements[index]
+      SET elements[index] to elements[leftSide + 1]
+      SET elements[leftSide + 1] to swap
+      INCREMENT leftSide
+    END IF
+  END FOR
+  SET swap to pivotElements
+  SET pivotElements to elements[leftSide]
+  SET elements[leftSide] to swap
+  RETURN leftSide
+END FUNCTION
+
+3)We talked about time complexity in a previous checkpoint, and how to get an idea of the efficiency of an algorithm. After looking at the pseudocode for the above sorting methods, identify why merge sort and quick sort are much more efficient than the others. Walking through each algorithm with a few sample collections may help.
+
+A: Merge sort is much more efficient than say Bubble sort as it is a divide and conquer type algorithm. Merge sort breaks up the data and then merges it back together in the order requested, where Bubble sort goes over the entire array multiple times until it is sorted accurately.
+
+4)All of the sorts addressed in this checkpoint are known as comparison sorts. Research bucket sort and explain how it works. What is the ideal input for bucket sort?
+
+A: Bucket sort is a type of sorting method that breaks all of the given elemetns into different buckets and then orders them according the the buckets that each element was placed into. The ideal input is that the elements or items need to be indexable for the use of the bucket sort.
